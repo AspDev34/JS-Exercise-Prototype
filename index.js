@@ -90,23 +90,25 @@ Car.prototype.fill = function(gallons) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-  Person.call(this, name, age);
-  this.favorite = favoriteToy;
+  Person.call(this, name, age, favoriteToy);
+  this.favoriteToy = favoriteToy;
 }
-Baby.prototype.play = function(favoriteToy) {
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`;
 };
-Baby.prototype.toString = function(favoriteToy) {
-  return `Playing with ${this.favoriteToy}`;
-};
+
+
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. In a global scope, or if none of the other 3 rules apply, the this keywork will bind with the window object. 
+  2. In strict mode window binding is stopped, but use of this will return undefined. 
+  3. In implicit binding (80% use cases) this refers to the object at the left of the dot.
+  4. In explicit binding, call or apply is used to explicitly bind this. 
 */
 
 
